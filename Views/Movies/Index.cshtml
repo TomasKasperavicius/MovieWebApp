@@ -1,0 +1,43 @@
+@model MovieFiltering;
+
+@{
+    ViewData["Title"] = "Index";
+
+}
+
+<h1>Movies</h1>
+
+<p>
+    <a asp-controller="Movies" asp-action="AddNewMovie">Add new movie</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.movies![0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.movies![0].ProducerName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in @ViewData["movies"] as IEnumerable<Models.Movie>)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProducerName)
+                </td>
+                @* <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td> *@
+            </tr>
+        }
+    </tbody>
+</table>
