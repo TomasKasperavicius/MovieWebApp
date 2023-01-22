@@ -30,7 +30,12 @@ namespace Movies.Controllers
             ViewData["movies"] = filteredMovies;
             return View();
         }
-        [HttpGet(":id")]
+        // [HttpGet]
+        public IActionResult Movie()
+        { 
+            return View();
+        }
+        [HttpGet]
         public async Task<IActionResult> GetMovieById(string id)
         {
             var movies = from m in _context.Movie
@@ -56,8 +61,20 @@ namespace Movies.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
         }
-        [HttpDelete(":id")]
-        public async Task<IActionResult> DeleteMovieById(string id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(Movie movie)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(movie);
+            }
+            _context.Movie.Update(movie);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        [HttpDelete]
+        public async Task<IActionResult> Delete(string id)
         {
             var movie = await _context.Movie.FindAsync(id);
             if (movie is not null)

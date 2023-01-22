@@ -1,5 +1,4 @@
-﻿@model MovieFiltering;
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,6 +9,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MovieWebApp.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/bootstrapTheme.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -43,7 +43,7 @@
                         </li> *@
                     </ul>
                     <form class="d-flex" asp-controller="Movies" asp-action="Index">
-                        <input class="form-control me-sm-2" type="search" placeholder="Search" asp-for="searchString">
+                        <input class="form-control me-sm-2" type="search" placeholder="Search" name="searchString">
                         <button class="btn btn-secondary my-2 my-sm-0" type="submit" >Search</button>
                     </form>
                 </div>

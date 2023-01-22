@@ -1,4 +1,4 @@
-@model MovieFiltering;
+@model Models.MovieFiltering;
 
 @{
     ViewData["Title"] = "Index";
@@ -8,7 +8,8 @@
 <h1>Movies</h1>
 
 <p>
-    <a asp-controller="Movies" asp-action="AddNewMovie">Add new movie</a>
+    <a asp-controller="Movies" asp-action="AddNewMovie"><button type="button" class="btn btn-secondary">Add new
+            movie</button></a>
 </p>
 
 <table class="table">
@@ -32,11 +33,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.ProducerName)
                 </td>
-                @* <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td> *@
+                <td>
+                    <a asp-controller="Movies" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-controller="Movies" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
             </tr>
         }
     </tbody>

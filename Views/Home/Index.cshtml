@@ -1,7 +1,24 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Home page</h1>
+<div class="card text-white bg-primary mb-3" style="max-width: 20rem; margin: 10px;">
+    <div class="card-header">Crime drama</div>
+    <div class="card-body">
+        <h4 class="card-title">Breaking bad</h4>
+        <img style="width: 100%;"
+            src="https://images.moviesrankings.com/image/thumb/Music3/v4/6c/4b/0d/6c4b0ddc-6f54-7c13-312e-f7b9e637800b/source/900x900bb.jpg">
+        <div style="display: flex; justify-content:space-around; align-items: center; width:100%;margin-top:10px"
+            aria-label="Basic example">
+            @* <div>
+                <span class="fa fa-star checked" style="color: yellow;"></span>
+                <span class="fa fa-star checked" style="color: yellow;"></span>
+                <span class="fa fa-star checked" style="color: yellow;"></span>
+                <span class="fa fa-star checked" style="color: yellow;"></span>
+                <span class="fa fa-star checked" style="color: yellow;"></span>
+                </div> *@
+            <a asp-controller="Movies" asp-action="Movie">
+                <button type="button" class="btn btn-secondary">Read more</button>
+            </a>
+        </div>
+    </div>
 </div>

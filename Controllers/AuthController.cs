@@ -2,6 +2,7 @@ namespace Auth.Controllers
 {
 
     using Microsoft.AspNetCore.Mvc;
+    using Models;
 
     public class AuthController : Controller
     {
@@ -12,13 +13,21 @@ namespace Auth.Controllers
         {
             return View();
         }
-        public IActionResult Login()
+        public IActionResult Login(Login login)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(login);
+            }
+            return View(login);
         }
-        public IActionResult Register()
+        public IActionResult Register(User user)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(user);
+            }
+            return View(user);
         }
     }
 }
